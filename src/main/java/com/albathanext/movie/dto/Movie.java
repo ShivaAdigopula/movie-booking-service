@@ -6,7 +6,7 @@ public class Movie {
 	public Boolean adult;
     public String backdrop_path;
     public ArrayList<Integer> genre_ids;
-    public Integer id;
+    public Long id;
     public String original_language;
     public String original_title;
     public String overview;
@@ -35,10 +35,10 @@ public class Movie {
 	public void setGenre_ids(ArrayList<Integer> genre_ids) {
 		this.genre_ids = genre_ids;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getOriginal_language() {

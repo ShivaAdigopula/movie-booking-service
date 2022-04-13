@@ -23,7 +23,7 @@ public class MovieBookingController {
 		return movieBookingService.save(movieBooking);
 	}
 	
-	@GetMapping("/search")
+	@GetMapping
 	public List<MovieBooking> searchByEmail(@RequestParam(value = "email", required=true) String email){
 		return movieBookingService.findByEmail(email);
 	}

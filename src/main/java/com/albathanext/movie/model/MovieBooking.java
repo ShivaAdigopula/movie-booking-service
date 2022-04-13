@@ -6,18 +6,18 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 @Document("movieBooking")
 public class MovieBooking {
 	 @Id
      private String id;
-
      private String first_name;
      private String last_name;
      private String email;
      private Integer number_of_seats;
-     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-     private Date date;
-     private Long movie_id;
+    // @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+     private String date;
+     private Movie movie;
      private String status;
 	public String getId() {
 		return id;
@@ -49,17 +49,19 @@ public class MovieBooking {
 	public void setNumber_of_seats(Integer number_of_seats) {
 		this.number_of_seats = number_of_seats;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public Long getMovie_id() {
-		return movie_id;
+	
+	
+	public Movie getMovie() {
+		return movie;
 	}
-	public void setMovie_id(Long movie_id) {
-		this.movie_id = movie_id;
+	public void setMovie(Movie movie) {
+		this.movie = movie;
 	}
 	public String getStatus() {
 		return status;
