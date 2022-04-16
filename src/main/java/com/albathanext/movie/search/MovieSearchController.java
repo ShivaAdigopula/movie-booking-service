@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.albathanext.movie.dto.MovieDetails;
+import com.albathanext.movie.dto.MovieReviewsResponse;
 import com.albathanext.movie.dto.MoviesResponse;
 
 @RestController
@@ -28,5 +29,10 @@ public class MovieSearchController {
 	@GetMapping("/{movieId}")
 	public MovieDetails getMovieDetails(@PathVariable("movieId") Long movieId) {
 		return movieSearchService.getMovieDetails(movieId);
+	}
+	
+	@GetMapping("/{movieId}/reviews")
+	public MovieReviewsResponse getMovieReviews(@PathVariable("movieId") Long movieId, @RequestParam(value = "page", required=true) Integer page) {
+		return movieSearchService.getMovieReviews(movieId, page);
 	}
 }

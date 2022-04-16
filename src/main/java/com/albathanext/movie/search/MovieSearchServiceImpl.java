@@ -1,5 +1,11 @@
 package com.albathanext.movie.search;
 
+import static com.albathanext.movie.search.MovieDbApiEnum.DISOVER_MOVIES_PATH;
+import static com.albathanext.movie.search.MovieDbApiEnum.MOVIE_DB_API_VERSION;
+import static com.albathanext.movie.search.MovieDbApiEnum.MOVIE_DETAILS_PATH;
+import static com.albathanext.movie.search.MovieDbApiEnum.REVIEWS;
+import static com.albathanext.movie.search.MovieDbApiEnum.SEARCH_MOVIE_PATH;
+
 import java.net.URISyntaxException;
 
 import org.apache.http.client.utils.URIBuilder;
@@ -11,8 +17,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.albathanext.movie.dto.MovieDetails;
+import com.albathanext.movie.dto.MovieReviewsResponse;
 import com.albathanext.movie.dto.MoviesResponse;
-import static com.albathanext.movie.search.MovieDbApiEnum.*;
 
 @Service
 public class MovieSearchServiceImpl implements MovieSearchService {
@@ -89,6 +95,26 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		return restTemplate.getForObject(
 				builder.toString(),
 				MovieDetails.class);
+	}
+	
+	
+	@Override
+	public MovieReviewsResponse getMovieReviews(Long movieId, Integer page) {
+		URIBuilder builder = getMovieDBURIBuilder();
+		if ( builder == null) {
+			throw new RuntimeException("Invalid Movie DB URL configured");
+		}
+		
+		if (movieId == null) {
+			throw new RuntimeException("Movie ID is required");
+		}
+		
+		builder.setPath("/".concat(MOVIE_DB_API_VERSION.toString()).concat(MOVIE_DETAILS_PATH.toString()).concat(movieId.toString()).concat(REVIEWS.toString()));
+		builder.addParameter("api_key", movieDbApiKey);
+		builder.addParameter("language", "en-US");
+		return restTemplate.getForObject(
+				builder.toString(),
+				MovieReviewsResponse.class);
 	}
 
 }
