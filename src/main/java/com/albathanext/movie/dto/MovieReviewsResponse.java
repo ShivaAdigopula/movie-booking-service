@@ -3,21 +3,22 @@ package com.albathanext.movie.dto;
 import java.util.ArrayList;
 
 public class MovieReviewsResponse {
-	public int id;
-    public int page;
+	public Long id;
+    public Integer page;
     public ArrayList<Review> results;
-    public int total_pages;
-    public int total_results;
-	public int getId() {
+    public Integer total_pages;
+    public Integer total_results;
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getPage() {
+	public Integer getPage() {
 		return page;
 	}
-	public void setPage(int page) {
+	public void setPage(Integer page) {
 		this.page = page;
 	}
 	public ArrayList<Review> getResults() {
@@ -26,18 +27,20 @@ public class MovieReviewsResponse {
 	public void setResults(ArrayList<Review> results) {
 		this.results = results;
 	}
-	public int getTotal_pages() {
+	public Integer getTotal_pages() {
 		return total_pages;
 	}
-	public void setTotal_pages(int total_pages) {
+	public void setTotal_pages(Integer total_pages) {
 		this.total_pages = total_pages;
 	}
-	public int getTotal_results() {
+	public Integer getTotal_results() {
 		return total_results;
 	}
-	public void setTotal_results(int total_results) {
+	public void setTotal_results(Integer total_results) {
 		this.total_results = total_results;
 	}
+	
+    
     
     
 }

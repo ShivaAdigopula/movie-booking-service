@@ -1,37 +1,43 @@
 package com.albathanext.movie.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MovieDetails {
-	 	public boolean adult;
+
+public class MovieDetails implements Serializable{
+	 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 641593466137500415L;
+		public Boolean adult;
 	    public String backdrop_path;
 	    public Object belongs_to_collection;
-	    public int budget;
+	    public Double budget;
 	    public ArrayList<Genre> genres;
 	    public String homepage;
-	    public int id;
+	    public Long id;
 	    public String imdb_id;
 	    public String original_language;
 	    public String original_title;
 	    public String overview;
-	    public double popularity;
+	    public Double popularity;
 	    public Object poster_path;
 	    public ArrayList<ProductionCompany> production_companies;
 	    public ArrayList<ProductionCountry> production_countries;
 	    public String release_date;
-	    public int revenue;
-	    public int runtime;
+	    public Long revenue;
+	    public Integer runtime;
 	    public ArrayList<SpokenLanguage> spoken_languages;
 	    public String status;
 	    public String tagline;
 	    public String title;
-	    public boolean video;
-	    public double vote_average;
-	    public int vote_count;
-		public boolean isAdult() {
+	    public Boolean video;
+	    public Double vote_average;
+	    public Integer vote_count;
+		public Boolean getAdult() {
 			return adult;
 		}
-		public void setAdult(boolean adult) {
+		public void setAdult(Boolean adult) {
 			this.adult = adult;
 		}
 		public String getBackdrop_path() {
@@ -46,10 +52,10 @@ public class MovieDetails {
 		public void setBelongs_to_collection(Object belongs_to_collection) {
 			this.belongs_to_collection = belongs_to_collection;
 		}
-		public int getBudget() {
+		public Double getBudget() {
 			return budget;
 		}
-		public void setBudget(int budget) {
+		public void setBudget(Double budget) {
 			this.budget = budget;
 		}
 		public ArrayList<Genre> getGenres() {
@@ -64,10 +70,10 @@ public class MovieDetails {
 		public void setHomepage(String homepage) {
 			this.homepage = homepage;
 		}
-		public int getId() {
+		public Long getId() {
 			return id;
 		}
-		public void setId(int id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 		public String getImdb_id() {
@@ -94,10 +100,10 @@ public class MovieDetails {
 		public void setOverview(String overview) {
 			this.overview = overview;
 		}
-		public double getPopularity() {
+		public Double getPopularity() {
 			return popularity;
 		}
-		public void setPopularity(double popularity) {
+		public void setPopularity(Double popularity) {
 			this.popularity = popularity;
 		}
 		public Object getPoster_path() {
@@ -124,16 +130,16 @@ public class MovieDetails {
 		public void setRelease_date(String release_date) {
 			this.release_date = release_date;
 		}
-		public int getRevenue() {
+		public Long getRevenue() {
 			return revenue;
 		}
-		public void setRevenue(int revenue) {
+		public void setRevenue(Long revenue) {
 			this.revenue = revenue;
 		}
-		public int getRuntime() {
+		public Integer getRuntime() {
 			return runtime;
 		}
-		public void setRuntime(int runtime) {
+		public void setRuntime(Integer runtime) {
 			this.runtime = runtime;
 		}
 		public ArrayList<SpokenLanguage> getSpoken_languages() {
@@ -160,24 +166,30 @@ public class MovieDetails {
 		public void setTitle(String title) {
 			this.title = title;
 		}
-		public boolean isVideo() {
+		public Boolean getVideo() {
 			return video;
 		}
-		public void setVideo(boolean video) {
+		public void setVideo(Boolean video) {
 			this.video = video;
 		}
-		public double getVote_average() {
+		public Double getVote_average() {
 			return vote_average;
 		}
-		public void setVote_average(double vote_average) {
+		public void setVote_average(Double vote_average) {
 			this.vote_average = vote_average;
 		}
-		public int getVote_count() {
+		public Integer getVote_count() {
 			return vote_count;
 		}
-		public void setVote_count(int vote_count) {
+		public void setVote_count(Integer vote_count) {
 			this.vote_count = vote_count;
 		}
+	    
+	    
+	    
+	    
+	    
+	    
 	    
 	    
 }

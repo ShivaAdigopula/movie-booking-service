@@ -32,7 +32,7 @@ public class MovieSearchController {
 	}
 	
 	@GetMapping("/{movieId}/reviews")
-	public MovieReviewsResponse getMovieReviews(@PathVariable("movieId") Long movieId, @RequestParam(value = "page", required=true) Integer page) {
+	public MovieReviewsResponse getMovieReviews(@PathVariable("movieId") Long movieId, @RequestParam(value = "page", required=false, defaultValue="1") Integer page) {
 		return movieSearchService.getMovieReviews(movieId, page);
 	}
 }
