@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.albathanext.movie.model.MovieBooking;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping(path="/movies/booking")
 public class MovieBookingController {
@@ -25,11 +27,13 @@ public class MovieBookingController {
 	private MovieBookingService movieBookingService;
 	
 	@PostMapping
+	@Operation(summary="Create Movie Booking")
 	public ResponseEntity<MovieBooking> createBooking(@RequestBody MovieBooking movieBooking) {
 		return new ResponseEntity<MovieBooking>(movieBookingService.save(movieBooking), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/search")
+	@Operation(summary="Search Movie Bookings")
 	public List<MovieBooking> searchByEmailAndDateRange(@RequestParam(value = "key", required=false) String searchKey, 
 			@RequestParam(value = "fromDate", required=false) @DateTimeFormat(pattern="dd-MM-yyyy") Date fromDate,
 			@RequestParam(value = "toDate", required=false) @DateTimeFormat(pattern="dd-MM-yyyy") Date toDate){
@@ -37,11 +41,13 @@ public class MovieBookingController {
 	}
 	
 	@PutMapping("/{id}")
+	@Operation(summary="Update Movie Booking")
 	public MovieBooking updateBooking(@PathVariable("id") String id, @RequestBody MovieBooking movieBooking) {
 		return movieBookingService.update(id, movieBooking);
 	}
 	
 	@PutMapping("/cancel/{id}")
+	@Operation(summary="Cancel Movie Booking")
 	public MovieBooking updateBooking(@PathVariable("id") String id) {
 		return movieBookingService.cancelBooking(id);
 	}
