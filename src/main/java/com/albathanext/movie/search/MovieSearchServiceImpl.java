@@ -35,7 +35,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	private String movieDbApiKey;
 
 	@Override
-	public MoviesResponse getFeaturedMovies() {
+	public MoviesResponse getFeaturedMovies(Long page) {
 		URIBuilder builder = getMovieDBURIBuilder();
 		if ( builder == null) {
 			throw new RuntimeException("Invalid Movie DB URL configured");
@@ -44,8 +44,9 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		builder.setPath("/".concat(MOVIE_DB_API_VERSION.toString()).concat(DISOVER_MOVIES_PATH.toString()));
 		builder.addParameter("api_key", movieDbApiKey);
 		builder.addParameter("language", "en-US");
-		builder.addParameter("sort_by", "popularity.desc");
+		builder.addParameter("sort_by", "vote_average.desc");
 		builder.addParameter("include_adult", "false");
+		builder.addParameter("page", page == null ? "1": page.toString());
 		return restTemplate.getForObject(
 				builder.toString(),
 				MoviesResponse.class);

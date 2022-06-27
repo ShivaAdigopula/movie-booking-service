@@ -39,7 +39,7 @@ public class MovieSearchControllerTest {
 		ObjectMapper obj = new ObjectMapper();
 		String response = obj.writeValueAsString(mockResponse);
 		
-		when(movieSearchService.getFeaturedMovies()).thenReturn(mockResponse);
+		when(movieSearchService.getFeaturedMovies(1L)).thenReturn(mockResponse);
 		MvcResult mvcResult = this.mockMvc.perform(get("/movies")).andDo(print()).andExpect(status().isOk()).andReturn();
 		String content = mvcResult.getResponse().getContentAsString();
 		assertEquals(response, content);
@@ -140,9 +140,9 @@ public class MovieSearchControllerTest {
 		result.add(movie1);
 		
 		MoviesResponse mockResponse = new MoviesResponse();
-		mockResponse.setPage(1);
-		mockResponse.setTotal_pages(10);
-		mockResponse.setTotal_results(100);
+		mockResponse.setPage(1L);
+		mockResponse.setTotal_pages(10L);
+		mockResponse.setTotal_results(100L);
 		mockResponse.setResults(result);
 		return mockResponse;
 	};
