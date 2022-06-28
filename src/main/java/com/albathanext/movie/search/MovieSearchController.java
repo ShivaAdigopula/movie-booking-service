@@ -26,8 +26,8 @@ public class MovieSearchController {
 	
 	@GetMapping("/search")
 	@Operation(summary="Search Movies by Query")
-	public MoviesResponse searchMovies(@RequestParam(value = "query", required=true) String query) {
-		return movieSearchService.searchMovies(query);
+	public MoviesResponse searchMovies(@RequestParam(value = "query", required=true) String query, @RequestParam(value="page", required=false, defaultValue="1") Long page) {
+		return movieSearchService.searchMovies(query , page);
 	}
 	
 	@GetMapping("/{movieId}")

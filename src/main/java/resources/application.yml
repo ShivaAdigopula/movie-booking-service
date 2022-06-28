@@ -8,3 +8,6 @@ spring:
     mongodb:
       database: myFirstDatabase
       uri: mongodb+srv://m001-student:m001-student@sandbox.yjp25.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+  graphql:
+    graphiql:
+     enabled: true

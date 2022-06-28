@@ -53,7 +53,7 @@ public class MovieSearchControllerTest {
 		ObjectMapper obj = new ObjectMapper();
 		String response = obj.writeValueAsString(mockResponse);
 		
-		when(movieSearchService.searchMovies("Test")).thenReturn(mockResponse);
+		when(movieSearchService.searchMovies("Test", 1L)).thenReturn(mockResponse);
 		MvcResult mvcResult = this.mockMvc.perform(get("/movies/search?query=Test")).andDo(print()).andExpect(status().isOk()).andReturn();
 		String content = mvcResult.getResponse().getContentAsString();
 		assertEquals(response, content);
@@ -67,7 +67,7 @@ public class MovieSearchControllerTest {
 		ObjectMapper obj = new ObjectMapper();
 		String response = obj.writeValueAsString(mockResponse);
 		
-		when(movieSearchService.searchMovies("Test")).thenReturn(mockResponse);
+		when(movieSearchService.searchMovies("Test", 1L)).thenReturn(mockResponse);
 		MvcResult mvcResult = this.mockMvc.perform(get("/movies/search")).andDo(print()).andExpect(status().is5xxServerError()).andReturn();
 	}
 	

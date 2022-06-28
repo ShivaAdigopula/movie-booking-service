@@ -1,27 +1,6 @@
 type Query {
-	queryFeaturedMovies(page : Int): MoviesResponse
-	queryMovieDetails(movieId : Int): Movie
-}
-
-type MoviesResponse {
-    page : Int
-    results : [Movie]
-    total_pages : Int
-    total_results : Int
-}
-
-type Movie {
-	id: Int
-	poster_path : String
-	overview: String
-	release_date: String
-	vote_average: Float
-	original_title: String
-}
-
-type Review {
-	author : String
-    content : String
-    created_at : String
-    id : ID    
+	featuredMovies(page : Int): MoviesResponse
+	movieDetails(movieId : Int): Movie
+	reviewsForMovie(movieId : Int, page : Int): ReviewResponse
+	movies(query : String, page : Int) : MoviesResponse
 }

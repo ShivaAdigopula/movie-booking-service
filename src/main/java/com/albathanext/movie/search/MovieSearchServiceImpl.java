@@ -53,7 +53,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	}
 	
 	@Override
-	public MoviesResponse searchMovies(String query) {
+	public MoviesResponse searchMovies(String query, Long page) {
 		URIBuilder builder = getMovieDBURIBuilder();
 		if ( builder == null) {
 			throw new RuntimeException("Invalid Movie DB URL configured");
@@ -64,6 +64,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		builder.addParameter("language", "en-US");
 		builder.addParameter("query", query);
 		builder.addParameter("include_adult", "false");
+		builder.addParameter("page", page == null ? "1": page.toString());
 		return restTemplate.getForObject(
 				builder.toString(),
 				MoviesResponse.class);

@@ -1,0 +1,36 @@
+type Mutation {
+	createBooking(movieBooking : MovieBookingRequest) : MovieBookingResponse
+}
+
+
+input MovieBookingRequest {
+	first_name : String
+	last_name : String
+	email: String
+	number_of_seats : Int
+	date : String
+	movie : MovieRefRequest
+}
+
+input MovieRefRequest {
+	id: Int
+	title : String
+	poster_path : String
+}
+
+type MovieRefResponse {
+	id: Int
+	title : String
+	poster_path : String
+}
+
+type MovieBookingResponse {
+	id: ID
+	first_name : String
+	last_name : String
+	email: String
+	number_of_seats : Int
+	date : String
+	movie : MovieRefResponse
+	status : String
+}

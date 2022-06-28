@@ -6,7 +6,7 @@ import com.albathanext.movie.dto.MoviesResponse;
 
 public interface MovieSearchService {
 	MoviesResponse getFeaturedMovies(Long page);
-	MoviesResponse searchMovies(String query);
+	MoviesResponse searchMovies(String query, Long page);
 	MovieDetails getMovieDetails(Long movieId);
 	MovieReviewsResponse getMovieReviews(Long movieId, Integer page);
 }

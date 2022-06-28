@@ -1,0 +1,40 @@
+type MoviesResponse {
+    page : Int
+    results : [Movie]
+    total_pages : Int
+    total_results : Int
+}
+
+type Movie {
+	id: Int
+	poster_path : String
+	overview: String
+	release_date: String
+	vote_average: Float
+	original_title: String
+}
+
+type ReviewResponse {
+	page: Int
+	results: [Review]
+	total_pages : Int
+	total_Results : Int
+}
+
+type Review {
+	author : String
+    content : String
+    created_at : String
+    id : ID    
+}
+
+type MovieBooking {
+	id : ID
+	first_name : String
+	last_name : String
+	email: String
+	number_of_seats : Int
+	date : String
+	movie : Movie
+	status : String
+}
