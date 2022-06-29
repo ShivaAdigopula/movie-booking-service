@@ -1,0 +1,16 @@
+movie:
+  db:
+    api:
+      key: 0831f1ae97f6df20fe66b61b7224fd04
+    url: https://api.themoviedb.org
+spring:
+  data:
+    mongodb:
+      database: myFirstDatabase
+      uri: mongodb+srv://m001-student:m001-student@sandbox.yjp25.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+  graphql:
+    graphiql:
+     enabled: true
+    cors:
+      allowed-origins:
+      - "*"

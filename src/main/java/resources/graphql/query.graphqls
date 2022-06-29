@@ -1,0 +1,8 @@
+type Query {
+	featuredMovies(page : Int): MoviesResponse
+	movieDetails(movieId : Int!): Movie!
+	reviewsForMovie(movieId : Int!, page : Int): ReviewResponse!
+	movies(query : String, page : Int) : MoviesResponse!
+	movieBookings : [MovieBookingResponse]!
+	pageMovieBookings(page : Int, size : Int) : PaginatedMovieBookingResponse
+}
