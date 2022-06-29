@@ -70,3 +70,12 @@ type MovieBookingResponse {
 	movie : MovieRefResponse
 	status : String
 }
+
+type PaginatedMovieBookingResponse {
+	totalPages : Int!
+	totalElements : Int!
+	content : [MovieBookingResponse]
+	hasNext : Boolean
+	isFirst : Boolean
+	size : Int
+}

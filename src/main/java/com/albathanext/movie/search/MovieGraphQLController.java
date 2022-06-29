@@ -2,7 +2,6 @@ package com.albathanext.movie.search;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
@@ -10,7 +9,10 @@ import com.albathanext.movie.dto.MovieDetails;
 import com.albathanext.movie.dto.MovieReviewsResponse;
 import com.albathanext.movie.dto.MoviesResponse;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j
 public class MovieGraphQLController {
 	@Autowired
 	private MovieSearchService movieSearchService;
@@ -22,6 +24,7 @@ public class MovieGraphQLController {
 	
 	@SchemaMapping(typeName="Query", value="movieDetails")
 	public MovieDetails getMovieDetails(@Argument Long movieId) {
+		log.info("getMovieDetails with {}", movieId);
 		return movieSearchService.getMovieDetails(movieId);
 	}
 	
