@@ -3,4 +3,5 @@ type Query {
 	movieDetails(movieId : Int): Movie
 	reviewsForMovie(movieId : Int, page : Int): ReviewResponse
 	movies(query : String, page : Int) : MoviesResponse
+	movieBookings : [MovieBookingResponse]
 }

@@ -1,7 +1,11 @@
 package com.albathanext.movie.booking;
 
+import java.util.List;
+
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 import com.albathanext.movie.model.MovieBooking;
@@ -19,6 +23,17 @@ public class MovieBookingGraphQLController {
 		return movieBookingService.save(movieBooking);	
 	}
 	
+	@MutationMapping
+	public MovieBooking cancelBooking(@Argument String bookingId) {
+		return movieBookingService.cancelBooking(bookingId);
+	}
+	
+	@SchemaMapping(typeName="Query", value="movieBookings")
+	public List<MovieBooking> getMovieBookings() {
+		return movieBookingService.findByKeyAndDateRange(null, null, null);
+	}
+	
 
 	
 }
+							
