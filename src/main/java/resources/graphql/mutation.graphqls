@@ -1,0 +1,6 @@
+type Mutation {
+	createBooking(movieBooking : MovieBookingRequest) : MovieBookingResponse
+	cancelBooking(bookingId : String) : MovieBookingResponse
+}
+
+

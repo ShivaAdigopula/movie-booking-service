@@ -20,14 +20,14 @@ public class MovieSearchController {
 	private MovieSearchService movieSearchService;
 	@GetMapping
 	@Operation(summary="Retrieves Featured Movies")
-	public MoviesResponse getFeaturedMovies() {
-		return movieSearchService.getFeaturedMovies();
+	public MoviesResponse getFeaturedMovies(@RequestParam(value="page", required=false, defaultValue="1") Long page) {
+		return movieSearchService.getFeaturedMovies(page);
 	}
 	
 	@GetMapping("/search")
 	@Operation(summary="Search Movies by Query")
-	public MoviesResponse searchMovies(@RequestParam(value = "query", required=true) String query) {
-		return movieSearchService.searchMovies(query);
+	public MoviesResponse searchMovies(@RequestParam(value = "query", required=true) String query, @RequestParam(value="page", required=false, defaultValue="1") Long page) {
+		return movieSearchService.searchMovies(query , page);
 	}
 	
 	@GetMapping("/{movieId}")

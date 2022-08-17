@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.albathanext.movie.model.MovieBooking;
@@ -86,6 +88,11 @@ public class MovieBookingServiceImpl implements MovieBookingService {
 		}
 		throw new RuntimeException("Movie Booking not found");
 		
+	}
+
+	@Override
+	public Page<MovieBooking> getPagedMovieBookings(PageRequest pageRequest) {
+		return movieBookingRepository.findAll(pageRequest);
 	}
 
 }
