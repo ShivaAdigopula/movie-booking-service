@@ -37,7 +37,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	@Cacheable(
 			value = "featuredMoviesCache",
-			key = "#page")
+			key = "#page", unless="#result == null")
 	@Override
 	public MoviesResponse getFeaturedMovies(Long page) {
 		URIBuilder builder = getMovieDBURIBuilder();
