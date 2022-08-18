@@ -1,11 +1,12 @@
 package com.albathanext.movie.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import lombok.Data;
 
 @Data
-public class Movie {
+public class Movie implements Serializable {
 	public Boolean adult;
     public String backdrop_path;
     public ArrayList<Integer> genre_ids;

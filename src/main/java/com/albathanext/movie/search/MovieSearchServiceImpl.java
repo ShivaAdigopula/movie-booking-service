@@ -48,7 +48,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		builder.setPath("/".concat(MOVIE_DB_API_VERSION.toString()).concat(DISOVER_MOVIES_PATH.toString()));
 		builder.addParameter("api_key", movieDbApiKey);
 		builder.addParameter("language", "en-US");
-		builder.addParameter("sort_by", "vote_average.desc");
+		builder.addParameter("sort_by", "popularity.desc");
 		builder.addParameter("include_adult", "false");
 		builder.addParameter("page", page == null ? "1": page.toString());
 		return restTemplate.getForObject(
